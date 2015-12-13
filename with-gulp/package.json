@@ -1,0 +1,16 @@
+{
+  "name": "jas-gulp",
+  "version": "1.0.0",
+  "description": "trying jasmine to run with gulp",
+  "main": "SpecRunner.html",
+  "scripts": {
+    "test": "testforme"
+  },
+  "author": "ayush",
+  "license": "MIT",
+  "dependencies": {
+    "gulp": "^3.9.0",
+    "gulp-connect": "^2.2.0",
+    "gulp-open": "^1.0.0"
+  }
+}
