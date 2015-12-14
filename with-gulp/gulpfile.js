@@ -9,13 +9,13 @@ var config={
     port:9005,
     devBaseUrl: 'http://localhost',
     paths: {
-        html: './*.html',
-        js: './**/*.js'
+        js: './spec/*.js'
     }
 }
 //Start a local development server
 gulp.task('connect', function(){
     connect.server({
+        root: './',
         port:config.port,
         base: config.devBaseUrl,
         livereload: true
@@ -27,10 +27,6 @@ gulp.task('open', ['connect'], function(){
         .pipe(open('',{url:config.devBaseUrl + ':'+ config.port + '/'}));
 });
 
-gulp.task('html', function(){
-    gulp.src(config.paths.html)
-        .pipe(connect.reload());
-});
 
 gulp.task('js', function(){
     gulp.src(config.paths.js)
@@ -38,8 +34,7 @@ gulp.task('js', function(){
 });
 
 gulp.task('watch', function(){
-    gulp.watch(config.paths.html, ['html']);
     gulp.watch(config.paths.js, ['js']);
 });
 
-gulp.task('default', ['html', 'js', 'open','watch']);
+gulp.task('default', ['connect', 'js', 'open','watch']);
